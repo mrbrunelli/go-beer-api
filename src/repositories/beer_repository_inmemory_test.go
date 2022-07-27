@@ -13,6 +13,7 @@ func seed(r BeerRepository) {
 	r.Create("Colorado", 13.47)
 }
 
+// TestMain executa antes de todos os cenários. Parecido com o BeforeAll do Jest
 func TestMain(m *testing.M) {
 	repo = &BeerRepositoryInMemory{}
 	seed(repo)
