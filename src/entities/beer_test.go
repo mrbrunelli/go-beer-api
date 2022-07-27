@@ -39,3 +39,14 @@ func TestManyPriceInCurrency(t *testing.T) {
 		}
 	}
 }
+
+func TestNameInUppercase(t *testing.T) {
+	beer := Beer{"Colorado", 13.50}
+
+	got := beer.GetNameInUpperCase()
+	want := "COLORADO"
+
+	if got != want {
+		t.Errorf("Got %q, wanted %q", got, want)
+	}
+}
