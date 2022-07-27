@@ -41,7 +41,7 @@ func TestFindAllBeers(t *testing.T) {
 }
 
 func TestFindById(t *testing.T) {
-	got := repo.FindById("0")
+	got := repo.FindById("1")
 	isEmpty := reflect.ValueOf(got).IsZero()
 
 	if isEmpty {
