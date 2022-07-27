@@ -50,3 +50,14 @@ func TestNameInUppercase(t *testing.T) {
 		t.Errorf("Got %q, wanted %q", got, want)
 	}
 }
+
+func TestToJson(t *testing.T) {
+	beer := Beer{"Heineken", 6.19}
+
+	got := beer.ToJson()
+	want := `{"name":"Heineken","price":6.19}`
+
+	if got != want {
+		t.Errorf("Got %q, wanted %q", got, want)
+	}
+}

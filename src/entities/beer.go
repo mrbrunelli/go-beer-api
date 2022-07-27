@@ -1,6 +1,7 @@
 package entities
 
 import (
+	"encoding/json"
 	"strconv"
 	"strings"
 )
@@ -8,8 +9,8 @@ import (
 // Para deixar público a struct, function, interface devem começar com letras maiúsculas
 
 type Beer struct {
-	Name  string
-	Price float64
+	Name  string  `json:"name"`
+	Price float64 `json:"price"`
 }
 
 func (b Beer) GetPriceInCurrency() string {
@@ -18,4 +19,9 @@ func (b Beer) GetPriceInCurrency() string {
 
 func (b Beer) GetNameInUpperCase() string {
 	return strings.ToUpper(b.Name)
+}
+
+func (b Beer) ToJson() string {
+	j, _ := json.Marshal(b)
+	return string(j)
 }
