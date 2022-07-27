@@ -1,6 +1,9 @@
 package entities
 
-import "strconv"
+import (
+	"strconv"
+	"strings"
+)
 
 // Para deixar público a struct, function, interface devem começar com letras maiúsculas
 
@@ -10,5 +13,5 @@ type Beer struct {
 }
 
 func (b Beer) GetPriceInCurrency() string {
-	return strconv.FormatFloat(b.Price, 'f', 2, 64)
+	return strings.Replace(strconv.FormatFloat(b.Price, 'f', 2, 64), ".", ",", 1)
 }
