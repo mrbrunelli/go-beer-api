@@ -3,6 +3,8 @@ package entities
 import "testing"
 
 // Para executar os testes de todos os diretórios, precisamos executar "go test ./..."
+// Coletar cobertura "go test ./... -coverprofile=coverage.out"
+// Exibir coverage em html "go tool cover -html=coverage.out"
 
 func TestPriceInCurrency(t *testing.T) {
 	got := Beer{
