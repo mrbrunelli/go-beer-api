@@ -8,6 +8,7 @@ import "testing"
 
 func TestPriceInCurrency(t *testing.T) {
 	got := Beer{
+		Id:    "1",
 		Name:  "Spaten",
 		Price: 4.99,
 	}.GetPriceInCurrency()
@@ -33,7 +34,7 @@ func TestManyPriceInCurrency(t *testing.T) {
 	}
 
 	for _, test := range testCases {
-		got := Beer{"Nice beer", test.arg1}.GetPriceInCurrency()
+		got := Beer{"1", "Nice beer", test.arg1}.GetPriceInCurrency()
 		want := test.expected
 
 		if got != want {
@@ -43,7 +44,7 @@ func TestManyPriceInCurrency(t *testing.T) {
 }
 
 func TestNameInUppercase(t *testing.T) {
-	beer := Beer{"Colorado", 13.50}
+	beer := Beer{"1", "Colorado", 13.50}
 
 	got := beer.GetNameInUpperCase()
 	want := "COLORADO"
@@ -54,10 +55,10 @@ func TestNameInUppercase(t *testing.T) {
 }
 
 func TestToJson(t *testing.T) {
-	beer := Beer{"Heineken", 6.19}
+	beer := Beer{"1", "Heineken", 6.19}
 
 	got := beer.ToJson()
-	want := `{"name":"Heineken","price":6.19}`
+	want := `{"id":"1","name":"Heineken","price":6.19}`
 
 	if got != want {
 		t.Errorf("Got %q, wanted %q", got, want)

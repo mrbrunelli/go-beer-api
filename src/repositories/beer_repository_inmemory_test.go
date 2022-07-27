@@ -2,6 +2,7 @@ package repositories
 
 import (
 	"os"
+	"reflect"
 	"testing"
 )
 
@@ -37,4 +38,14 @@ func TestFindAllBeers(t *testing.T) {
 	if len(got) != want {
 		t.Errorf("Got %v, want %v", len(got), want)
 	}
+}
+
+func TestFindById(t *testing.T) {
+	got := repo.FindById("0")
+	isEmpty := reflect.ValueOf(got).IsZero()
+
+	if isEmpty {
+		t.Errorf("Beer not found. Got %v, isEmpty %t", got, isEmpty)
+	}
+
 }

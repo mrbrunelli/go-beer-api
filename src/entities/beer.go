@@ -9,6 +9,7 @@ import (
 // Para deixar público a struct, function, interface devem começar com letras maiúsculas
 
 type Beer struct {
+	Id    string  `json:"id"`
 	Name  string  `json:"name"`
 	Price float64 `json:"price"`
 }
