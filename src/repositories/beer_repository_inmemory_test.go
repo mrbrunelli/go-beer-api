@@ -49,3 +49,16 @@ func TestFindById(t *testing.T) {
 	}
 
 }
+
+// Testa o desempenho de um caso. Execute "go test -bench=." ou pelo nome "go test -bench=Create"
+func BenchmarkCreate(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		repo.Create("Nice beer", 12.44)
+	}
+}
+
+func BenchmarkFindById(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		repo.FindById("200")
+	}
+}
